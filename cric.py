@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('Untitled spreadsheet - Sheet1.csv')
+df = pd.read_csv('Untitled spreadsheet - Sheet1.csv') #add the sheet
 '''Problem statement: To predict the runs scored by each batsman if they played for 10 more years'''
 
 df[['Player','Country']] = df['Player'].str.split('(', expand=True)
