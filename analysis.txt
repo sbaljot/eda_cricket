@@ -1,0 +1,13 @@
+Basic stat inferences:
+Matches seem right skewed as per the mean and median and its skewed by 0.93 which means 
+its moderately skewed.
+Runs seem a highly right skewed as per mean and median and it's skewed by 1.3 which means 
+that there is a tail of skewness in the graph.
+df[df['Average']==99.940000] shows Bradman as 99 avg so that is an outlier identified. It has got
+a tail as its 2.75 skewed. And the whole graph is right skewed in general.
+SRs are right skewed as per mean and median and its skewed by 1.13 which also means there's a tail
+100, 50s, 4s and 6s are all right skewed and have a tail but 0 seems central
+
+Kurtosis analysis (tailedness of the data):
+In general all the values are fine but average has a kurt of 17 and SR has kurt of 2.33. Ducks 
+has a kurt value of -0.25 that means the chances of outliers are very less. 
