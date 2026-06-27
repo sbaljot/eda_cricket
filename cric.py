@@ -34,6 +34,7 @@ df = df.astype({'HS':'int64',
 
 print(df.info())
 
+#boxplot analysis for different variables
 iqr = df['6s'].quantile(0.75) - df['6s'].quantile(0.25)
 upper_fence = df['6s'].quantile(0.75) + 1.5*iqr
 lower_fence = df['6s'].quantile(0.25) - 1.5*iqr
