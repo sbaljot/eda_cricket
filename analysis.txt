@@ -11,3 +11,26 @@ SRs are right skewed as per mean and median and its skewed by 1.13 which also me
 Kurtosis analysis (tailedness of the data):
 In general all the values are fine but average has a kurt of 17 and SR has kurt of 2.33. Ducks 
 has a kurt value of -0.25 that means the chances of outliers are very less. 
+
+Boxplot analysis:
+All features have little outliers but not outs, runs, balls faced and SR have some outliers to be 
+considered. Average has just 1 outlier out of the 1.5 IQR range so it's almost perfect.
+Why these outliers?
+1. Matches - Sachin, Ponting, Kallis and Waugh had gigantic career span compared to others.
+2. Innings - Root and Cook instead of Ponting, Kallis and Waugh because Root and Cook's number of matches
+            are just borderline outliers whereas Ponting, Kallis and Waugh matches are also borderlines
+            outliers.
+3. NO - Chanderpaul, Allan Border and Waugh were all mid order batsmen. This also suggests that 
+        batting position for batsmen is missing which is a flaw in the data. Kallis had a big career
+        and also has a lot of runs in the later parameter comes under the outlier category which
+        suggests that Kallis was a great batsman and also played a lot of matches and balls_faced.
+4. Runs - Sachin, Root, Ponting, Kallis and Dravid's matches are close outliers in Matches/Innings 
+        as well which is why they have a lot of runs and all of them are top order batsmen which means
+        they faced a lot more balls compared to others to score these amount of runs.
+5. Avg - Don Bradman, known outlier.
+6. SR - Warner, Sehwag, Viv Richards, Gilchrist and Kapil Dev, all of them were openers, except 
+        Kapil as he was a middle order batsmen, so a common trend suggests that openers or 1 down
+        usually try to play quick in order to score runs faster. This is also the reason why their
+        NO is low, playing a high risk high reward game often comes at the cost of an early wicket. 
+7. 4s - Sachin and Dravid had a lot of runs and are outlier cases in Runs category as well. If the
+        runs are too much, then most of those runs have to be scored in boundaries.
