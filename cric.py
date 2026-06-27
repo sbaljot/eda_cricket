@@ -33,3 +33,10 @@ df = df.astype({'HS':'int64',
                 'End_year':'int64',})
 
 print(df.info())
+
+iqr = df['6s'].quantile(0.75) - df['6s'].quantile(0.25)
+upper_fence = df['6s'].quantile(0.75) + 1.5*iqr
+lower_fence = df['6s'].quantile(0.25) - 1.5*iqr
+print(df[(df['6s']>upper_fence) & (df['6s']>lower_fence)])
+sns.boxplot(df['6s'])
+plt.show()
