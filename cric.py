@@ -45,3 +45,4 @@ plt.show()
 runs_comp = df[["Runs","Mat","Inns","Strike_rate","NO","Average","Balls_faced"]]#"HS","100","50","0","4s","6s"
 runs_comp = df[["Strike_rate","100","50","0","4s","6s"]]
 runs_comp = df[["Mat","100","50","0","4s","6s"]]
+print(runs_comp.cov())
