@@ -41,3 +41,7 @@ lower_fence = df['6s'].quantile(0.25) - 1.5*iqr
 print(df[(df['6s']>upper_fence) & (df['6s']>lower_fence)])
 sns.boxplot(df['6s'])
 plt.show()
+#covariance
+runs_comp = df[["Runs","Mat","Inns","Strike_rate","NO","Average","Balls_faced"]]#"HS","100","50","0","4s","6s"
+runs_comp = df[["Strike_rate","100","50","0","4s","6s"]]
+runs_comp = df[["Mat","100","50","0","4s","6s"]]
