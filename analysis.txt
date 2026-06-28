@@ -43,3 +43,19 @@ Covariance analysis:
 Other noticable inferences:
 1. As the number of matches increase, SR and Average also increase
 2. As the number of balls faced increase, SR reduction is normal but Average seems to increase as well
+
+Correlation analysis:
+1. Runs has a close positive correlation with Matches and Balls faced. They're strongly related to each other.
+    The more matches a player plays, the more he is going to add up to his runs and the balls he'll
+    face would also increase.
+2. Runs has almost no relation with SR which means it has minimal affect on SR.
+3. Runs has some positive correlation with Average as well which means that scoring runs would help
+    average of a player to increase a bit.
+4. The data shows that if number of matches increase then average is not getting affected much. That
+    means playing more matches won't help a batsman increase his average.
+5. Strike rate has a negative correlation with balls faced which means the lesser balls a player would
+    play, the higher the strike rate of that player will be.
+6. 6s has a very strong positive correlation with strike rate, 4s also has it but 6s has a stronger relation.
+    This means, the more boundaries player hits, the more his SR would go up.
+7. Centuries, half centuries, boundaries all show a strong positive correlation which deducts that these
+    variables would increase strongly with runs.
