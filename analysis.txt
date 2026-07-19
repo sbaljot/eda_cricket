@@ -34,6 +34,7 @@ Why these outliers?
         NO is low, playing a high risk high reward game often comes at the cost of an early wicket. 
 7. 4s - Sachin and Dravid had a lot of runs and are outlier cases in Runs category as well. If the
         runs are too much, then most of those runs have to be scored in boundaries.
+
 Covariance analysis:
 1. Runs have a positive relation with Matches, with more number of Matches, more runs are scored.
 2. Same with innings
