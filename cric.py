@@ -46,3 +46,28 @@ runs_comp = df[["Runs","Mat","Inns","Strike_rate","NO","Average","Balls_faced"]]
 runs_comp = df[["Strike_rate","100","50","0","4s","6s"]]
 runs_comp = df[["Mat","100","50","0","4s","6s"]]
 print(runs_comp.cov())
+#conditional probability
+high_sr = df.loc[df['Strike_rate'] >= df['Strike_rate'].quantile(0.75), ['Player', 'Strike_rate']]
+high_runs = df.loc[df['Runs'] >= df['Runs'].quantile(0.75), ['Player', 'Runs']]
+srintersection = len(set(high_runs['Player']) & set(high_sr['Player']))
+print(srintersection/high_sr['Player'].count())
+print(high_runs['Player'].count())
+
+high_centurion = df.loc[df['100'] >= df['100'].quantile(0.75), ['Player', '100']]
+high_avg = df.loc[df['Average'] >= df['Average'].quantile(0.75), ['Player', 'Average']]
+caintersection = len(set(high_centurion['Player']) & set(high_avg['Player']))
+print(srintersection/high_avg['Player'].count())
+print(high_centurion['Player'].count())
+
+low_ducks = df.loc[df['0'] <= df['0'].quantile(0.25),['Player', '0']]
+high_consistency = df.loc[df['Average'] >= df['Average'].quantile(0.75),['Player', 'Average']]
+dcintersection = len(set(low_ducks) & set(high_consistency))
+print(dcintersection/high_consistency['Player'].count())
+print(low_ducks['Player'].count())
+
+df['career_length'] = df['End_year'] - df['Start_year']
+long_career = df.loc[df['career_length'] >= df['career_length'].quantile(0.75),['Player', 'career_length']]
+high_balls = df.loc[df['Balls_faced'] >= df['Balls_faced'].quantile(0.75),['Player', 'Balls_faced']]
+cbintersection = len(set(long_career) & set(high_balls))
+print(dcintersection/high_balls['Player'].count())
+print(long_career['Player'].count())
