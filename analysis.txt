@@ -60,3 +60,20 @@ Correlation analysis:
     This means, the more boundaries player hits, the more his SR would go up.
 7. Centuries, half centuries, boundaries all show a strong positive correlation which deducts that these
     variables would increase strongly with runs.
+
+Conditional prbability analysis:
+P(high runs | high strike rate)
+P(century player | high average)
+P(low ducks | high consistency proxy)
+P(long career | high balls faced)
+
+1. Probability of runs being high if the strike rate is high is 32% of the total 27 players.
+    Which means approximately 9 players out of 28 holds this condition true which doesn't 
+    make it a strong indicator.
+2. Probability of a centurion also playing with a high average is 32% of the total 28 players.
+    Which means approximately 9 players out of 28 holds this condition true which doesn't 
+    make it a strong indicator.
+3. Probability of a player with low 0s having a high consistency is 3% of the total 29 players.
+    Which means consistency is not at all defined by lower number of 0s.
+4. Probability of a player with higher balls faced given the career is long is 3% of the 
+    total 42 players. Which means facing a lot of balls doesnt mean a long career.
