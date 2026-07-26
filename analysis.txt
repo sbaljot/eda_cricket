@@ -77,3 +77,11 @@ P(long career | high balls faced)
     Which means consistency is not at all defined by lower number of 0s.
 4. Probability of a player with higher balls faced given the career is long is 3% of the 
     total 42 players. Which means facing a lot of balls doesnt mean a long career.
+
+z test analysis:
+Is the proportion of high-run players among high strike-rate players significantly different from the overall proportion of high-run players?
+Is the proportion of century players among high-average players higher than the global century rate?
+
+1. Failed to reject null hypothesis meaning high sr players have a good probability of being 
+    high runs player among all the high run players.
+2. Test failed as everyone is a centurion
