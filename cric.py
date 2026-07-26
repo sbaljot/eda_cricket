@@ -71,3 +71,30 @@ high_balls = df.loc[df['Balls_faced'] >= df['Balls_faced'].quantile(0.75),['Play
 cbintersection = len(set(long_career) & set(high_balls))
 print(dcintersection/high_balls['Player'].count())
 print(long_career['Player'].count())
+
+#z test
+
+#H0 = high run players among high sr players are same compared to overall high run players
+#H1 = high run players among high sr players are different compared to overall high run players
+total_players = df['Player'].count()
+total_high_run_players = df[df['Runs']>=df['Runs'].quantile(0.75)]['Player'].count()
+total_high_sr_players = df[df['Strike_rate']>=df['Strike_rate'].quantile(0.75)]['Player'].count()
+p_high_run_intersect_high_sr = set(df[df['Runs']>=df['Runs'].quantile(0.75)]['Player']) & set(df[df['Strike_rate']>=df['Strike_rate'].quantile(0.75)]['Player'])
+p_high_run_given_high_sr = len(p_high_run_intersect_high_sr)/total_high_sr_players
+p  = p_high_run_given_high_sr
+p0 = total_high_run_players / total_players
+n  = total_high_sr_players #because high run players are within high sr players so sr players is the base
+degree_of_freedom = n-1
+z = (p - p0) / ( (p0 * (1 - p0)) / n )**0.5
+print('H0:',-1.96 <= z <= 1.96) #z table values for 0.9750
+#H0 = centurions among high avg players are same as the global centurions
+#H1 = centurions among high avg players are more as the global centurions
+total_centurions = df['100'].count()
+total_high_avg_players = df[df['Average']>=df['Average'].quantile(0.75)]['Average'].count()
+p_centurion_intersect_high_avg = set(df[df['100']>=df['100'].quantile(0.75)]['Player']) & set(df[df['Average']>=df['Average'].quantile(0.75)]['Player'])
+p_centurion_given_high_avg = len(p_centurion_intersect_high_avg)/total_high_avg_players
+p  = p_centurion_given_high_avg
+p0 = total_centurions / total_players
+n  = total_high_avg_players
+z = (p - p0) / ( (p0 * (1 - p0)) / n )**0.5
+print('H0:',-1.96 <= z <= 1.96) #test failed because everyone is a centurion
