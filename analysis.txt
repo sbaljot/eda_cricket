@@ -85,3 +85,7 @@ Is the proportion of century players among high-average players higher than the 
 1. Failed to reject null hypothesis meaning high sr players have a good probability of being 
     high runs player among all the high run players.
 2. Test failed as everyone is a centurion
+
+chi square test analysis (CI is 95%):
+Is high strike rate associated with high total runs?
+-Failed to reject null hypothesis which means these are independent
