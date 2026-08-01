@@ -98,3 +98,33 @@ p0 = total_centurions / total_players
 n  = total_high_avg_players
 z = (p - p0) / ( (p0 * (1 - p0)) / n )**0.5
 print('H0:',-1.96 <= z <= 1.96) #test failed because everyone is a centurion
+
+#chi test
+
+#H0: independence
+#H1: association
+
+high_sr_players = df[df['Strike_rate']>=df['Strike_rate'].quantile(0.75)]['Player']
+low_sr_players = df[df['Strike_rate']<=df['Strike_rate'].quantile(0.25)]['Player']
+high_runs = df[df['Runs']>=df['Runs'].quantile(0.75)]['Player']
+low_runs = df[df['Runs']<=df['Runs'].quantile(0.25)]['Player']
+#observed values
+o11 = len(set(high_sr_players)&set(high_runs))
+o12 = len(set(high_sr_players)&set(low_runs))
+o21 = len(set(low_sr_players)&set(high_runs))
+o22 = len(set(low_sr_players)&set(low_runs))
+n=26
+#expected values
+e11 = ((o11+o12)*(o11+o21))/n
+e12 = ((o11+o12)*(o12+o22))/n
+e21 = ((o21+o22)*(o11+o21))/n
+e22 = ((o21+o22)*(o12+o22))/n
+#cell wise summed values
+x11 = (o11-e11)**2/e11
+x12 = (o12-e12)**2/e12
+x21 = (o21-e21)**2/e21
+x22 = (o22-e22)**2/e22
+chi_sum = x11+x22+x12+x21
+df = (2-1)*(2-1) #r-1.c-1
+chi_table_value = 3.84
+print(chi_sum)
