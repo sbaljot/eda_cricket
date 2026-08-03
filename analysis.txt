@@ -89,3 +89,10 @@ Is the proportion of century players among high-average players higher than the 
 chi square test analysis (CI is 95%):
 Is high strike rate associated with high total runs?
 -Failed to reject null hypothesis which means these are independent
+
+anova test (CI is 95%)
+Do players with different batting performance levels (based on average) have different 
+mean strike rates?
+-Failed to reject null hypothesis because the value 0.2 means that the variance between the groups
+is too less to be ignored. Also means vb<vw which further means that the difference between
+different average groups doesnt differ much means its unaffected by SR.
