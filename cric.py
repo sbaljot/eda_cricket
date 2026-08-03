@@ -128,3 +128,46 @@ chi_sum = x11+x22+x12+x21
 df = (2-1)*(2-1) #r-1.c-1
 chi_table_value = 3.84
 print(chi_sum)
+
+#anova test (CI is 95%)
+#H0: same means
+#H1: different means
+low_avg_sr = df[df['Average']<=df['Average'].quantile(0.25)]['Strike_rate']
+high_avg_sr = df[df['Average']>=df['Average'].quantile(0.75)]['Strike_rate']
+med_avg_sr = df[(df['Average']>df['Average'].quantile(0.25)) & (df['Average']<df['Average'].quantile(0.75))]['Strike_rate']
+
+s_las=low_avg_sr.sum()
+s_mas=med_avg_sr.sum()
+s_has=high_avg_sr.sum()
+m_las = s_las/low_avg_sr.count()
+m_mas = s_mas/med_avg_sr.count()
+m_has = s_has/high_avg_sr.count()
+total_mean = (s_has+s_las+s_mas)/(low_avg_sr.count()+med_avg_sr.count()+high_avg_sr.count())
+ssb_low = (low_avg_sr.count())*((m_las-total_mean))**2
+ssb_med = (med_avg_sr.count())*((m_mas-total_mean))**2
+ssb_high = (high_avg_sr.count())*((m_has-total_mean))**2
+ssb = ssb_low+ssb_high+ssb_med
+
+df['mean_diff'] = np.nan
+df.loc[df['Strike_rate'].isin(low_avg_sr),'mean_diff']= (df['Strike_rate'] - m_las)**2
+df.loc[df['Strike_rate'].isin(med_avg_sr),'mean_diff']= (df['Strike_rate'] - m_mas)**2
+df.loc[df['Strike_rate'].isin(high_avg_sr),'mean_diff']= (df['Strike_rate'] - m_has)**2
+df.loc[df['Strike_rate'].isin(low_avg_sr),'avg_nature']='low'
+df.loc[df['Strike_rate'].isin(med_avg_sr),'avg_nature']='medium'
+df.loc[df['Strike_rate'].isin(high_avg_sr),'avg_nature']='high'
+ssw_low = df[df['avg_nature']=='low']['mean_diff'].sum()
+ssw_med = df[df['avg_nature']=='medium']['mean_diff'].sum()
+ssw_high = df[df['avg_nature']=='high']['mean_diff'].sum()
+ssw = ssw_low+ssw_med+ssw_high
+
+ss = ssb+ssw
+
+dfb = 2 #(k-1)
+dfw = df['Strike_rate'].count() - 3 #(N-k)
+df = dfb+dfw
+
+msb = ssb/dfb
+msw = ssw/dfw
+
+f = msb/msw
+print(dfb,dfw,f)
